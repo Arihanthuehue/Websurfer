@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      width: 250px;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 16px;
+      margin: 0 0 12px 0;
+      color: #63b3ff;
+      text-align: center;
+    }
+    .toggle-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #333;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #444;
+      transition: .2s;
+      border-radius: 20px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .2s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #3b6fd4;
+    }
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+    .controls {
+      font-size: 12px;
+      background: #2a2a2a;
+      padding: 8px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .controls h2 {
+      font-size: 12px;
+      margin: 0 0 8px 0;
+      color: #aaa;
+    }
+    .control-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      align-items: center;
+    }
+    .customization {
+      background: #2a2a2a;
+      padding: 8px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .key {
+      background: #444;
+      padding: 2px 5px;
+      border-radius: 3px;
+      color: #fff;
+      font-family: monospace;
+    }
+    .footer {
+      text-align: center;
+      font-size: 11px;
+    }
+    .footer a {
+      color: #63b3ff;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>WebSurfer</h1>
+  
+  <div class="toggle-container">
+    <span>Enable on this tab</span>
+    <label class="switch">
+      <input type="checkbox" id="toggleSwitch">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="customization">
+    <div class="control-row">
+      <span>Name</span>
+      <input type="text" id="playerName" placeholder="Surfer" maxlength="12" style="width: 80px; background: #333; color: white; border: 1px solid #555; border-radius: 4px; padding: 2px 6px;">
+    </div>
+    <div class="control-row">
+      <span>Color</span>
+      <input type="color" id="playerColor" value="#3b6fd4" style="background: none; border: none; width: 30px; height: 24px; padding: 0; cursor: pointer;">
+    </div>
+  </div>
+
+  <div class="controls">
+    <h2>Controls</h2>
+    <div class="control-row"><span>Move</span> <span class="key">Arrows / A D</span></div>
+    <div class="control-row"><span>Jump</span> <span class="key">Space / W / Up</span></div>
+    <div class="control-row"><span>Fast Fall</span> <span class="key">S / Down</span></div>
+    <div class="control-row"><span>Drop Thru</span> <span class="key">Shift + S</span></div>
+    <div class="control-row"><span>Debug</span> <span class="key">Hold D (1s)</span></div>
+    <div class="control-row"><span>Disable</span> <span class="key">Escape</span></div>
+  </div>
+
+  <div class="footer">
+    <a href="#" id="githubLink">GitHub</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
